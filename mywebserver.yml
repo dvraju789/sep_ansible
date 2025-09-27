@@ -7,20 +7,22 @@
       apt:
         name: apache2
         state: present
+      when: ansible_os_family == "ubuntu"  
 
     - name: start apache2 services
       service:
          name: apache2
          state: started 
+      when: ansible_os_family == "ubuntu"   
 
     - name: install httpd server on Redhat
       yum:
         name: httpd
         state: present 
-      when: os_family == "Redhat" 
+      when: ansible_os_family == "Redhat" 
 
     - name: Start https server on Redhat 
       service:
          name: httpd
          state: started          
-      when: os_family == "Redhat"
+      when: ansible_os_family == "Redhat"

@@ -14,13 +14,13 @@
          state: started 
 
     - name: install httpd server on Redhat
-      yum:
+      dnf:
         name: httpd
         state: present 
-      when: os_family== "Redhat" 
+      when: os_family == "Redhat" 
 
     - name: Start https server on Redhat 
       service:
          name: httpd
          state: started          
-      when: os_family== "Redhat"
+      when: os_family == "Redhat"

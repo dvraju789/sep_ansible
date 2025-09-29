@@ -3,14 +3,13 @@
   become: yes
   tasks:
   - name: install java on ubuntu nodes
-    apt:
-      name:
+    apt: 
+      name: "{{myjavaonubuntu}}"
       state: present
     when: ansible_os_family=="debian"
 
   - name: install java on Redhat nodes
     dnf:
-      name:
+      name: "{{httpd}}"
       state: present 
     when: ansible_os_family=="Redhat"
-         
